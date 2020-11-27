@@ -1,6 +1,24 @@
-.smth {
+.search-field {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 20px 0px;
+}
+
+.button-search {
+    height: 56px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin-left: 10px;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+    transition-duration: 0.3s;
+}
+
+.button-search:hover {
+    color: white;
+    background-color: #000;
 }
