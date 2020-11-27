@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import CharactersComponent from './components/CharactersComponent/CharactersComponent';
+import EpisodesComponent from './components/EpisodesComponent/EpisodesComponent';
+import LocationsComponent from './components/LocationsComponent/LocationsComponent';
+import WatchListComponent from './components/WatchListComponent/WatchListComponent';
+import WelcomeComponent from './components/WelcomeComponent/WelcomeComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+export default function App() {
+  return(
+    <div>
+      <BrowserRouter>
+        <Route path='/' exact component={WelcomeComponent}/>
+        <Route path='/characters' component={CharactersComponent}/>
+        <Route path='/episodes' component={EpisodesComponent}/>
+        <Route path='/locations' component={LocationsComponent}/>
+        <Route path='/watch_list' component={WatchListComponent}/>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
-
-export default App;

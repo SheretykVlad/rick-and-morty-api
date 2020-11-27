@@ -1,0 +1,58 @@
+.navbar {
+    background-color: #000;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 80px;
+}
+
+.navbar-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    padding: 0px 20px;
+}
+
+.icon-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-icon {
+    height: 50px;
+    margin-right: 30px;
+}
+
+.app-header {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 25px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.nav-list__inner {
+    transition-duration: 0.2s;
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.nav-list__inner:last-child {
+    margin-right: 0px;
+}
+
+.nav-list__inner:hover {
+    font-size: 18px;
+    opacity: 1;
+}

@@ -1,0 +1,4 @@
+export const charactersConstants = {
+    GET_FIRST_CHARACTERS: 'GET_FIRST_CHARACTERS',
+    GET_CHARACTERS: 'GET_CHARACTERS'
+}
