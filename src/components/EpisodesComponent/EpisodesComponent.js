@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllEpisodesFromApi, fetchEpisodesWithNameFilter } from '../../redux/actions/episodesActions';
 import Navbar from '../../UI/Navbar/Navbar';
-import TableOfSeries from '../../UI/Table/TableOfSeries';
+import Table from '../../UI/Table/TableOfSeries';
 import './index.css';
 
 export default function EpisodesComponent() {
@@ -28,13 +28,16 @@ export default function EpisodesComponent() {
         <div>
             <Navbar/>
             <div className='search-field'>
-                <form>
-                    <TextField id="outlined-basic" label="Search the episode" variant="outlined" style={{width: 400}} value={nameOfEpisode} onChange={event => setNameOfEpisode(event.target.value)}/>
-                    <button className='button-search' type='button' onClick={() => handleClick()}>Search</button>
-                </form>
+                <TextField id="outlined-basic" label="Search the episode" variant="outlined" style={{width: 400}} value={nameOfEpisode} onChange={event => setNameOfEpisode(event.target.value)}/>
+                <button className='button-search' type='button' onClick={() => handleClick()}>Search</button>
             </div>
             <div className='episodes-table'>
-                <TableOfSeries rows={episodesForTable}/>
+                <Table rows={episodesForTable} pageSize={25} columns={[
+                    { field: 'id', headerName: 'ID', width: 70 },
+                    { field: 'episodeName', headerName: 'Episode name', width: 330 },
+                    { field: 'airDate', headerName: 'Air date', width: 190, },
+                    { field: 'episode',  headerName: 'Episode', width: 90, }
+                ]}/>
             </div>
         </div>
     )

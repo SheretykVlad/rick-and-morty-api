@@ -19,7 +19,8 @@ export default function CharactersComponent() {
     }, [])
 
     function getTheFilter(text) {
-        setFilter(text)
+        setFilter(text);
+        setPage(1);
         if (text){
             dispatch(firstFetchCharactersWithFilterFromAPI(text))
         } else {

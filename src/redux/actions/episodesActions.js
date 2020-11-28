@@ -91,5 +91,10 @@ export const fetchEpisodesWithNameFilter = (name) => {
                 })
             }
         })
+        .catch((error) => {
+            if(error.message === "Cannot read property 'map' of undefined") {
+                alert('Ooops! There are no such episode!')
+            }
+        })
     }
 }
