@@ -1,9 +1,11 @@
-import { TextField } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllLocationsFromAPI, fetchLocationsWithNameFilter } from '../../redux/actions/locationsActions';
 import Navbar from '../../UI/Navbar/Navbar';
 import Table from '../../UI/Table/TableOfSeries';
+import DeleteIcon from '@material-ui/icons/Delete';
+import './index.css';
 
 export default function LocationsComponent() {
     const dispatch = useDispatch();
@@ -21,10 +23,10 @@ export default function LocationsComponent() {
         if (nameOfLocation.trim()) {
             dispatch(await fetchLocationsWithNameFilter(nameOfLocation));
         } else {
-            dispatch(await fetchAllLocationsFromAPI());
+            alert('Ooops! You need to entry something!');
         }
-        setNameOfLocation('')
-    }
+        setNameOfLocation('');
+    };
 
     return(
         <div>
@@ -32,6 +34,9 @@ export default function LocationsComponent() {
             <div className='search-field'>
                 <TextField id="outlined-basic" label="Search the location" variant="outlined" style={{width: 400}} value={nameOfLocation} onChange={event => setNameOfLocation(event.target.value)}/>
                 <button className='button-search' type='button' onClick={() => handleClick()}>Search</button>
+                <IconButton aria-label="delete" onClick={async () => {dispatch(await fetchAllLocationsFromAPI()); setNameOfLocation('')}}>
+                    <DeleteIcon fontSize="large" />
+                </IconButton>
             </div>
             <div className='locations-table'>
                 <Table rows={locations} pageSize={20} columns={[

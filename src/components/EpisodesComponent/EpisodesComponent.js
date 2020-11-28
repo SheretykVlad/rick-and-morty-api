@@ -1,10 +1,11 @@
-import { TextField } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllEpisodesFromApi, fetchEpisodesWithNameFilter } from '../../redux/actions/episodesActions';
 import Navbar from '../../UI/Navbar/Navbar';
 import Table from '../../UI/Table/TableOfSeries';
 import './index.css';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export default function EpisodesComponent() {
     const dispatch = useDispatch();
@@ -19,10 +20,10 @@ export default function EpisodesComponent() {
         if (nameOfEpisode.trim()) {
             dispatch(fetchEpisodesWithNameFilter(nameOfEpisode));
         } else {
-            dispatch(fetchAllEpisodesFromApi());
+            alert('Ooops! You need to entry something!');
         }
-        setNameOfEpisode('')
-    }
+        setNameOfEpisode('');
+    };
 
     return(
         <div>
@@ -30,6 +31,9 @@ export default function EpisodesComponent() {
             <div className='search-field'>
                 <TextField id="outlined-basic" label="Search the episode" variant="outlined" style={{width: 400}} value={nameOfEpisode} onChange={event => setNameOfEpisode(event.target.value)}/>
                 <button className='button-search' type='button' onClick={() => handleClick()}>Search</button>
+                <IconButton aria-label="delete" onClick={() => {dispatch(fetchAllEpisodesFromApi()); setNameOfEpisode('')}}>
+                    <DeleteIcon fontSize="large" />
+                </IconButton>
             </div>
             <div className='episodes-table'>
                 <Table rows={episodesForTable} pageSize={25} columns={[

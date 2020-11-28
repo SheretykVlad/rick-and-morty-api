@@ -1,12 +1,19 @@
 import React from 'react';
 import './index.css';
 import appIcon from '../../img/app-icon.jpg';
+import { Redirect } from 'react-router-dom';
 
 export default function Navbar() {
+    const [onStartPage, setOnStartPage] = React.useState(false);
+
+    if (onStartPage) {
+        return <Redirect to='/'/>
+    }
+
     return(
         <div className='navbar'>
             <div className='navbar-content'>
-                <div className='icon-header'>
+                <div className='icon-header' onClick={() => setOnStartPage(true)}>
                     <img src={appIcon} alt='' className='app-icon'/>
                     <p className='app-header'>Rick and Morty</p>
                 </div>

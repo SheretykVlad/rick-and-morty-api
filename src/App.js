@@ -6,6 +6,7 @@ import LocationsComponent from './components/LocationsComponent/LocationsCompone
 import WatchListComponent from './components/WatchListComponent/WatchListComponent';
 import WelcomeComponent from './components/WelcomeComponent/WelcomeComponent';
 
+
 export default function App() {
   return(
     <div>

@@ -1,0 +1,12 @@
+.welcome {
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-header {
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 40px;
+}
